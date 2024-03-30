@@ -20,14 +20,6 @@ final class MockMealsAPIManager: MealsAPIManager {
         self.apiFailureTriggered = apiFailureTriggered
     }
     
-    /// Simulates retrieving data from a URL, either succeeding or failing based on the `apiFailureTriggered` flag.
-    override func retrieveData(for urlString: String) async -> Result<Data, Error> {
-        if apiFailureTriggered {
-            return .failure(MealsAPIError.requestFailed(message: "Error decoding API Response"))
-        }
-        return .success(Data())
-    }
-    
     /// Simulates retrieving meals data, either succeeding with mock data or failing based on the `apiFailureTriggered` flag.
     override func retrieveMeals(ofType mealsCategory: String) async -> Result<Meals, Error> {
         if apiFailureTriggered {

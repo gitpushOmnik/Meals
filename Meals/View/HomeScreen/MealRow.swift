@@ -12,8 +12,12 @@ import Kingfisher
 struct MealRow: View {
     
     /// The meal item to display in the row.
-    let meal: Meal
+    private let meal: Meal
 
+    init(_ meal: Meal) {
+        self.meal = meal
+    }
+    
     var body: some View {
         HStack(spacing: Constants.Spacings.mealRowHorizontal) {
             KFImage.url(URL(string: meal.thumbnail))
@@ -34,3 +38,8 @@ struct MealRow: View {
     }
 }
 
+#Preview {
+    MealRow(Meal(id: "52898",
+                 title: "Chelsea Buns",
+                 thumbnail: "https://www.themealdb.com/images/media/meals/vqpwrv1511723001.jpg"))
+}

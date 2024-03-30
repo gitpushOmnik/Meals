@@ -44,17 +44,5 @@ class MealsAPIManagerTests: XCTestCase {
             XCTFail("Failed to retrieve meal details with error: \(error.localizedDescription)")
         }
     }
-
-    /// Test case for retrieving data with an invalid URL.
-    func testRetrieveDataWithInvalidURL() async {
-        let result = await mealsAPIManager.retrieveData(for: "invalidURL")
-        
-        switch result {
-        case .success:
-            XCTFail("Should fail with invalid URL.")
-        case .failure(let error):
-            XCTAssertNotNil(error)
-        }
-    }
 }
 

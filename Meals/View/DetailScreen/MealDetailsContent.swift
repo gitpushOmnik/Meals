@@ -11,14 +11,26 @@ import SwiftUI
 struct MealDetailsContent: View {
     
     /// The details of the meal to display.
-    let details: MealDetail
-
+    private let details: MealDetail
+    
+    init(_ details: MealDetail) {
+        self.details = details
+    }
+    
     var body: some View {
         VStack(spacing: Constants.Spacings.mealDetailsVertical) {
-            MealHeader(details: details)
-            MealInstructions(instructions: details.instructions)
-            MealIngredients(ingredients: details.ingredients, measurements: details.measurements)
+            MealHeader(details)
+            MealInstructions(details.instructions)
+            MealIngredients(details.ingredients, details.measurements)
         }
         .padding()
     }
+}
+
+#Preview {
+    MealDetailsContent(MealDetail(title: "Banana Pancakes",
+                                  imageURLString: "https://www.themealdb.com/images/media/meals/sywswr1511383814.jpg",
+                                  id: "52855",
+                                  ingredients: ["Eggs", "Baking Powder", "Vanilla Extract", "Oil", "Pecan Nuts", "Raspberries"],
+                                  measurements: ["1 large", "2 medium", "pinch", "spinkling", "1 tsp ","25g","125g"]))
 }

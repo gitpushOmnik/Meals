@@ -16,6 +16,11 @@ struct MealIngredients: View {
     /// The array of measurements corresponding to the ingredients.
     let measurements: [String]
 
+    init(_ ingredients: [String], _ measurements: [String]) {
+        self.ingredients = ingredients
+        self.measurements = measurements
+    }
+    
     var body: some View {
         Text(Constants.Strings.ingredients)
             .font(.system(size: Constants.Sizes.titleSize))
@@ -38,4 +43,9 @@ struct MealIngredients: View {
             .frame(maxWidth: Constants.Sizes.ingredientsWidth)
         }
     }
+}
+
+#Preview {
+    MealIngredients(["Eggs", "Baking Powder", "Vanilla Extract", "Oil", "Pecan Nuts", "Raspberries"],
+                    ["1 large", "2 medium", "pinch", "spinkling", "1 tsp ","25g","125g"])
 }

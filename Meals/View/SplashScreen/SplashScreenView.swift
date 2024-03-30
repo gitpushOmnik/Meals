@@ -28,7 +28,7 @@ struct SplashScreenView: View {
                 MealsListView(mealsViewModel, mealDetailsViewModel)
             }
             else {
-                SplashScreenContent(animatedText: $animatedText)
+                SplashScreenContent($animatedText)
             }
         }
         .onAppear {

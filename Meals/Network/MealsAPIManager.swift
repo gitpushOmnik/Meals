@@ -13,7 +13,7 @@ class MealsAPIManager {
     /// Retrieves data asynchronously from a specified URL.
     /// - Parameter urlString: The URL string from which to retrieve data.
     /// - Returns: A result containing either the retrieved data or an error.
-    func retrieveData(for urlString: String) async -> Result<Data, Error> {
+    private func retrieveData(for urlString: String) async -> Result<Data, Error> {
         guard let url = URL(string: urlString) else { return .failure(MealsAPIError.invalidURL) }
         
         do {

@@ -11,12 +11,16 @@ import SwiftUI
 struct MealsList: View {
     
     /// The array of meals to display in the list.
-    let meals: [Meal]
+    private let meals: [Meal]
 
+    init(_ meals: [Meal]) {
+        self.meals = meals
+    }
+    
     var body: some View {
         List(Array(meals.enumerated()), id: \.element.id) { index, meal in
             NavigationLink(destination: MealDetailsView(MealDetailsViewModel(), meal.id)) {
-                MealRow(meal: meal)
+                MealRow(meal)
             }
             .listRowBackground(index.isMultiple(of: 2) ? Color.gray.opacity(0.1) : Color.clear)
         }
@@ -29,5 +33,7 @@ struct MealsList: View {
 }
 
 #Preview {
-    MealsList(meals: [])
+    MealsList([Meal(id: "52898",
+                    title: "Chelsea Buns",
+                    thumbnail: "https://www.themealdb.com/images/media/meals/vqpwrv1511723001.jpg")])
 }

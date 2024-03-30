@@ -14,7 +14,7 @@ class MealsViewModel: ObservableObject {
     @Published var meals: [Meal]?
     
     /// The API manager for retrieving meals data.
-    let mealsAPIManager: MealsAPIManager
+    private let mealsAPIManager: MealsAPIManager
 
     /// Initializes the view model with an optional custom API manager.
     /// - Parameter mealsAPIManager: The meals API manager. Defaults to `MealsAPIManager()`.

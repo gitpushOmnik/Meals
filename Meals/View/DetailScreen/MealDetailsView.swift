@@ -14,7 +14,7 @@ struct MealDetailsView: View {
     @ObservedObject var mealDetailsViewModel: MealDetailsViewModel
     
     /// The ID of the meal to display details for.
-    let mealID: String
+    private let mealID: String
     
     /// Initializes the MealDetailsView with the provided view model and meal ID.
     /// - Parameters:
@@ -32,7 +32,7 @@ struct MealDetailsView: View {
             
             if let details = mealDetailsViewModel.mealDetails {
                 ScrollView {
-                    MealDetailsContent(details: details)
+                    MealDetailsContent(details)
                 }
             }else {
                 ProgressView(Constants.Strings.loading)

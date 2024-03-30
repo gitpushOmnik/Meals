@@ -13,6 +13,10 @@ struct MealInstructions: View {
     /// The array of instructions for the meal.
     let instructions: [String]?
 
+    init(_ instructions: [String]?) {
+        self.instructions = instructions
+    }
+    
     var body: some View {
         if let instructions = instructions {
             Text(Constants.Strings.instructions)
@@ -36,5 +40,5 @@ struct MealInstructions: View {
 }
 
 #Preview {
-    MealInstructions(instructions: [])
+    MealInstructions(["Take SaucePan and Wok", "Heat and oil it up", "Crack eggs and season it", "Serve with garnishing and enjoy"])
 }

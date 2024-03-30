@@ -11,7 +11,11 @@ import SwiftUI
 struct SplashScreenContent: View {
     
     /// Binding for the animated text displayed during the splash screen.
-    @Binding var animatedText: String
+    @Binding private var animatedText: String
+    
+    init(_ animatedText: Binding<String>) {
+        self._animatedText = animatedText
+    }
     
     var body: some View {
         ZStack {

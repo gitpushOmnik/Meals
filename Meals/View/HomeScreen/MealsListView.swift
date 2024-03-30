@@ -11,10 +11,10 @@ import SwiftUI
 struct MealsListView: View {
     
     /// Observed object for managing meals data.
-    @ObservedObject var mealsViewModel: MealsViewModel
+    @ObservedObject private var mealsViewModel: MealsViewModel
     
     /// Observed object for managing meal details data.
-    @ObservedObject var mealDetailsViewModel: MealDetailsViewModel
+    @ObservedObject private var mealDetailsViewModel: MealDetailsViewModel
     
     /// Initializes the MealsListView with the specified view models.
     /// - Parameters:
@@ -31,7 +31,7 @@ struct MealsListView: View {
                 if meals.isEmpty {
                     Text(Constants.Strings.noItems)
                 } else {
-                    MealsList(meals: meals)
+                    MealsList(meals)
                 }
             } else {
                 ProgressView(Constants.Strings.loading)
